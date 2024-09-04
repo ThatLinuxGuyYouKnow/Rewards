@@ -1,5 +1,6 @@
 import 'package:balancee_rewards/ReusableWidgets/text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RewardBalanceTab extends StatelessWidget {
   final String cashbackBalance;
@@ -9,29 +10,59 @@ class RewardBalanceTab extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       width: screenWidth * 0.9,
-      height: screenHeight * 0.1,
+      height: screenHeight * 0.2,
       decoration: BoxDecoration(
           color: Colors.blue, borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-        child: Row(
-          children: [
-            SizedBox(width: screenWidth * 0.02),
-            HighlightText(
-              text: 'Total  CashBack  Earned :  ',
-              textSize: 18,
-            ),
-            Divider(
-              thickness: 2,
-            ),
-            HighlightText(text: '#'),
-            HighlightText(
-              text: cashbackBalance,
-              textSize: 19,
-            )
-          ],
+        child: Padding(
+          padding: EdgeInsets.only(top: screenHeight * 0.04),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(width: screenWidth * 0.02),
+                  HighlightText(
+                    text: 'Total  CashBack  Earned :  ',
+                    textSize: 18,
+                  ),
+                  Divider(
+                    thickness: 2,
+                  ),
+                  HighlightText(text: '#'),
+                  HighlightText(
+                    text: cashbackBalance,
+                    textSize: 19,
+                  )
+                ],
+              ),
+              SizedBox(
+                height: screenHeight * 0.05,
+              ),
+              WithdrawCashBackBalance()
+            ],
+          ),
         ),
       ),
     );
+  }
+}
+
+class WithdrawCashBackBalance extends StatelessWidget {
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    return GestureDetector(
+        child: Container(
+      child: Center(
+        child: Text('Withdraw',
+            style: GoogleFonts.plusJakartaSans(
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)),
+      ),
+      height: screenHeight * 0.06,
+      width: screenWidth * 0.8,
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+    ));
   }
 }

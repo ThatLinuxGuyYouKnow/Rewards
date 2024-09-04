@@ -1,3 +1,4 @@
+import 'package:balancee_rewards/ReusableWidgets/redeemBalanceTabPage.dart';
 import 'package:flutter/material.dart';
 
 class RedeemTab extends StatelessWidget {
@@ -8,9 +9,9 @@ class RedeemTab extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenWidth * .01),
+        padding: EdgeInsets.symmetric(horizontal: screenWidth * .05),
         child: Column(
-          children: [],
+          children: [RedeemBalanceTab()],
         ),
       ),
     );
