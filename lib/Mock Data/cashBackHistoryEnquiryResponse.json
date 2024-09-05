@@ -5,7 +5,23 @@
             "firstName": "Ayobami",
             "lastName": "Alabi"
         },
-        "total_cashback": "200000000",
-        "cashback_balance": "20000"
+        "totalCashback": 200000000,
+        "cashbackBalance": 20000,
+        "cashbackHistory": [
+            {
+                "transactionID": "T12345",
+                "amount": 10000,
+                "transactionType": "cashBackIn",
+                "description": "Cashback from in-App Booking",
+                "date": "2024-09-01T10:30:00Z"
+            },
+            {
+                "transactionID": "T12346",
+                "amount": -5000,
+                "transactionType": "cashBackOut",
+                "description": "Cashback redeemed for Food Delivery",
+                "date": "2024-09-02T14:45:00Z"
+            }
+        ]
     }
 }
