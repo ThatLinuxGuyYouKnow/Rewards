@@ -10,24 +10,21 @@ class RewardBalanceTab extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       width: screenWidth * 0.9,
-      height: screenHeight * 0.2,
+      height: screenHeight * 0.15,
       decoration: BoxDecoration(
           color: Colors.blue, borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
         child: Padding(
-          padding: EdgeInsets.only(top: screenHeight * 0.04),
+          padding: EdgeInsets.only(top: screenHeight * 0.02),
           child: Column(
             children: [
               Row(
                 children: [
-                  SizedBox(width: screenWidth * 0.02),
+                  SizedBox(width: screenWidth * 0.005),
                   HighlightText(
-                    text: 'Total  CashBack  Earned :  ',
+                    text: 'Current CashBack Balance :  ',
                     textSize: 18,
-                  ),
-                  Divider(
-                    thickness: 2,
                   ),
                   HighlightText(text: '#'),
                   HighlightText(
@@ -37,7 +34,7 @@ class RewardBalanceTab extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: screenHeight * 0.05,
+                height: screenHeight * 0.04,
               ),
               WithdrawCashBackBalance()
             ],
@@ -59,7 +56,7 @@ class WithdrawCashBackBalance extends StatelessWidget {
             style: GoogleFonts.plusJakartaSans(
                 fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)),
       ),
-      height: screenHeight * 0.06,
+      height: screenHeight * 0.04,
       width: screenWidth * 0.8,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10)),

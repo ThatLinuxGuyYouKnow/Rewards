@@ -1,6 +1,7 @@
 import 'package:balancee_rewards/ReusableWidgets/redeemBalanceTabPage.dart';
 import 'package:balancee_rewards/ReusableWidgets/rewardBalanceTab.dart';
 import 'package:balancee_rewards/ReusableWidgets/text.dart';
+import 'package:balancee_rewards/Tabs/historyTab.dart';
 import 'package:balancee_rewards/Tabs/rewardsTab.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -64,13 +65,13 @@ class MainRewardsScreen extends StatelessWidget {
                       Row(
                         children: [
                           SizedBox(
-                            width: screenWidth * 0.05,
+                            width: screenWidth * 0.06,
                           ),
                           Text(
-                            'Current CashBack Balance:',
+                            'Total CasBack Earned:',
                             style: GoogleFonts.plusJakartaSans(
                               color: Colors.black,
-                              fontSize: 18,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -81,7 +82,7 @@ class MainRewardsScreen extends StatelessWidget {
                             '1000',
                             style: GoogleFonts.plusJakartaSans(
                               color: Colors.black,
-                              fontSize: 18,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
                           )
@@ -103,18 +104,6 @@ class MainRewardsScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class HistoryTab extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 60.0), // Adjust to prevent overlap
-      child: Center(
-        child: Text('History Tab Content'), // Replace with actual content
       ),
     );
   }
