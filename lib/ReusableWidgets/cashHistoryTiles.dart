@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart'; // For improved date formatting
 
-// Enum to represent the type of cashback
 enum CashBackType {
   cashBackIn,
   cashBackOut,
 }
 
-// ignore: must_be_immutable
 class HistoryTile extends StatelessWidget {
   final CashBackType cashBackType;
-  final String cashBackAmount; // Title (cashback amount)
-  final String cashBackDetails; // Subtitle (details of cashback)
+  final String cashBackAmount;
+  final String cashBackDetails;
+  final DateTime date;
 
-  HistoryTile({
-    super.key,
+  const HistoryTile({
+    Key? key,
     required this.cashBackType,
     required this.cashBackAmount,
     required this.cashBackDetails,
-  });
+    required this.date,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +35,11 @@ class HistoryTile extends StatelessWidget {
             blurStyle: BlurStyle.solid,
             color: Colors.black.withOpacity(0.2),
             blurRadius: 5,
-          )
+          ),
         ],
       ),
-      height: screenHeight * 0.082,
-      width: screenWidth * .9,
+      height: screenHeight * 0.09, // Slightly increased height
+      width: screenWidth * 0.9,
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: _getBackgroundColor(),
@@ -47,22 +48,33 @@ class HistoryTile extends StatelessWidget {
             color: _getIconColor(),
           ),
         ),
-        title: Text(
-          cashBackAmount, // Dynamic cashback amount
-          style: GoogleFonts.plusJakartaSans(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              cashBackAmount,
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              _formatDate(date), // Using a more flexible date format
+              style: GoogleFonts.plusJakartaSans(
+                fontSize: 12,
+                color: Colors.grey,
+              ),
+            ),
+          ],
         ),
         subtitle: Text(
-          cashBackDetails, // Dynamic cashback details
+          cashBackDetails,
           style: GoogleFonts.plusJakartaSans(),
         ),
       ),
     );
   }
 
-  // Get the icon based on the cashBackType
   IconData _getIcon() {
     switch (cashBackType) {
       case CashBackType.cashBackIn:
@@ -81,7 +93,6 @@ class HistoryTile extends StatelessWidget {
     }
   }
 
-  // Get the background color based on the cashBackType
   Color _getBackgroundColor() {
     switch (cashBackType) {
       case CashBackType.cashBackIn:
@@ -90,5 +101,9 @@ class HistoryTile extends StatelessWidget {
         return Colors.amber.withOpacity(0.2);
     }
   }
+
+  // Improved date formatting using the intl package
+  String _formatDate(DateTime date) {
+    return DateFormat('dd/MM/yyyy').format(date);
+  }
 }
-  //

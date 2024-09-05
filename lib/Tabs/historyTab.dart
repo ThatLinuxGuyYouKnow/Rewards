@@ -20,7 +20,7 @@ class _HistoryTabState extends State<HistoryTab> {
   Future<void> _loadCashbackHistory() async {
     // Load the mock data from the JSON file
     final String response = await rootBundle
-        .loadString('MockData/cashBackHistoryEnquiryResponse.json');
+        .loadString('lib/MockData/cashBackHistoryEnquiryResponse.json');
     final data = json.decode(response); // Parse the JSON
     setState(() {
       cashbackHistory =
@@ -48,6 +48,7 @@ class _HistoryTabState extends State<HistoryTab> {
                   cashBackType: historyItem['transactionType'] == 'cashBackIn'
                       ? CashBackType.cashBackIn
                       : CashBackType.cashBackOut,
+                  date: historyItem['date'],
                 ),
                 SizedBox(height: screenHeight * 0.02),
               ],
