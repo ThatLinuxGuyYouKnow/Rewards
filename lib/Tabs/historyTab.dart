@@ -1,34 +1,58 @@
-import 'package:balancee_rewards/ReusableWidgets/cashHistoryTiles.dart';
-import 'package:balancee_rewards/ReusableWidgets/text.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:balancee_rewards/ReusableWidgets/cashHistoryTiles.dart';
 
-class HistoryTab extends StatelessWidget {
+class HistoryTab extends StatefulWidget {
+  @override
+  _HistoryTabState createState() => _HistoryTabState();
+}
+
+class _HistoryTabState extends State<HistoryTab> {
+  List<dynamic> cashbackHistory = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCashbackHistory();
+  }
+
+  Future<void> _loadCashbackHistory() async {
+    // Load the mock data from the JSON file
+    final String response = await rootBundle
+        .loadString('MockData/cashBackHistoryEnquiryResponse.json');
+    final data = json.decode(response); // Parse the JSON
+    setState(() {
+      cashbackHistory =
+          data['data']['cashbackHistory']; // Extract the cashback history
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
-            height: screenHeight * 0.22,
-          ),
-          HistoryTile(
-            cashBackDetails: 'Reward for Completing App',
-            cashBackAmount: ' #200000',
-            cashBackType: CashBackType.cashBackIn,
-          ),
-          SizedBox(height: screenHeight * 0.02),
-          HistoryTile(
-            cashBackDetails: 'Repairs Booked through app',
-            cashBackAmount: ' # 74 500',
-            cashBackType: CashBackType.cashBackIn,
-          ),
-          SizedBox(height: screenHeight * 0.02),
-          HistoryTile(
-            cashBackDetails: 'CashBack Withdrawn',
-            cashBackAmount: ' # 143 000',
-            cashBackType: CashBackType.cashBackOut,
-          )
+          SizedBox(height: screenHeight * 0.22),
+          // Build HistoryTile widgets dynamically from the parsed cashbackHistory
+          ...cashbackHistory.map((historyItem) {
+            return Column(
+              children: [
+                HistoryTile(
+                  cashBackDetails:
+                      historyItem['description'], // Description from the data
+                  cashBackAmount:
+                      ' #${historyItem['amount']}', // Format the amount
+                  cashBackType: historyItem['transactionType'] == 'cashBackIn'
+                      ? CashBackType.cashBackIn
+                      : CashBackType.cashBackOut,
+                ),
+                SizedBox(height: screenHeight * 0.02),
+              ],
+            );
+          }).toList(),
         ],
       ),
     );
