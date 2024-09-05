@@ -1,0 +1,11 @@
+{
+    "data": {
+        "userID": "11111",
+        "username": {
+            "firstName": "Ayobami",
+            "lastName": "Alabi"
+        },
+        "total_cashback": "200000000",
+        "cashback_balance": "20000"
+    }
+}
