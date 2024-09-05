@@ -10,9 +10,25 @@ class HistoryTab extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: screenHeight * 0.3,
+            height: screenHeight * 0.22,
           ),
-          HistoryTile()
+          HistoryTile(
+            cashBackDetails: 'Reward for Completing App',
+            cashBackAmount: ' #200000',
+            cashBackType: CashBackType.cashBackIn,
+          ),
+          SizedBox(height: screenHeight * 0.02),
+          HistoryTile(
+            cashBackDetails: 'Repairs Booked through app',
+            cashBackAmount: ' # 74 500',
+            cashBackType: CashBackType.cashBackIn,
+          ),
+          SizedBox(height: screenHeight * 0.02),
+          HistoryTile(
+            cashBackDetails: 'CashBack Withdrawn',
+            cashBackAmount: ' # 143 000',
+            cashBackType: CashBackType.cashBackOut,
+          )
         ],
       ),
     );
