@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HistoryFilterButton extends StatelessWidget {
   final String buttonText;
-  HistoryFilterButton({super.key, required this.buttonText});
+  final IconData buttonIcon;
+  HistoryFilterButton(
+      {super.key, required this.buttonText, required this.buttonIcon});
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -19,7 +21,7 @@ class HistoryFilterButton extends StatelessWidget {
             ),
           ),
           SizedBox(width: screenWidth * .008),
-          Icon(Icons.arrow_downward)
+          Icon(buttonIcon)
         ],
       ),
     );

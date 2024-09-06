@@ -32,6 +32,8 @@ class _HistoryTabState extends State<HistoryTab> {
     });
   }
 
+  toggleCashBackOptionsVisibility() async {}
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -44,10 +46,23 @@ class _HistoryTabState extends State<HistoryTab> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: screenHeight * .01),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * .01),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * .06),
                 child: Row(children: [
-                  HistoryFilterButton(
-                    buttonText: 'All',
+                  GestureDetector(
+                    onTap: () {},
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: screenWidth * .02),
+                      child: Row(
+                        children: [
+                          Text(
+                            'All',
+                            style: GoogleFonts.plusJakartaSans(fontSize: 12),
+                          ),
+                          SizedBox(width: screenWidth * 0.002),
+                          Icon(Icons.all_inclusive)
+                        ],
+                      ),
+                    ),
                   )
                 ]),
               ),

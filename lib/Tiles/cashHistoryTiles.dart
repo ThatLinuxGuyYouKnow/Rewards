@@ -1,6 +1,4 @@
-// Import the new cashback_type.dart file
 import 'package:balancee_rewards/Enums/cashBackType.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -38,11 +36,14 @@ class HistoryTile extends StatelessWidget {
       height: screenHeight * 0.09,
       width: screenWidth * 0.9,
       child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: _getBackgroundColor(),
-          child: Icon(
-            _getIcon(),
-            color: _getIconColor(),
+        leading: Align(
+          alignment: Alignment.center, // Aligns the CircleAvatar vertically
+          child: CircleAvatar(
+            backgroundColor: _getBackgroundColor(),
+            child: Icon(
+              _getIcon(),
+              color: _getIconColor(),
+            ),
           ),
         ),
         title: Row(
