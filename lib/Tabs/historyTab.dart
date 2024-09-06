@@ -1,7 +1,9 @@
 import 'dart:convert';
+import 'package:balancee_rewards/ReusableWidgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:balancee_rewards/ReusableWidgets/cashHistoryTiles.dart';
+import 'package:balancee_rewards/Tiles/cashHistoryTiles.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HistoryTab extends StatefulWidget {
   @override
@@ -30,12 +32,30 @@ class _HistoryTabState extends State<HistoryTab> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: screenHeight * 0.22),
+          SizedBox(height: screenHeight * .22),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: screenHeight * .01),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * .01),
+              child: Row(
+                children: [
+                  Text(
+                    'Show All',
+                    style: GoogleFonts.plusJakartaSans(
+                      color: Colors.black,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           // Build HistoryTile widgets dynamically from the parsed cashbackHistory
           ...cashbackHistory.map((historyItem) {
             return Column(
@@ -48,9 +68,10 @@ class _HistoryTabState extends State<HistoryTab> {
                   cashBackType: historyItem['transactionType'] == 'cashBackIn'
                       ? CashBackType.cashBackIn
                       : CashBackType.cashBackOut,
-                  date: historyItem['date'],
+                  date: DateTime.parse(
+                      historyItem['date']), // Parse the date string
                 ),
-                SizedBox(height: screenHeight * 0.02),
+                SizedBox(height: screenHeight * 0.03),
               ],
             );
           }).toList(),

@@ -17,9 +17,37 @@
             },
             {
                 "transactionID": "T12346",
-                "amount": -5000,
+                "amount": 5000,
                 "transactionType": "cashBackOut",
                 "description": "Cashback redeemed for Food Delivery",
+                "date": "2024-09-02T14:45:00Z"
+            },
+            {
+                "transactionID": "T12347",
+                "amount": -5000,
+                "transactionType": "cashBackOut",
+                "description": "Cashback Withdrawn to Bank",
+                "date": "2024-09-02T14:45:00Z"
+            },
+            {
+                "transactionID": "T12348",
+                "amount": 5000,
+                "transactionType": "cashBackIn",
+                "description": "Cashback from in-App Booking",
+                "date": "2024-09-02T14:45:00Z"
+            },
+            {
+                "transactionID": "T12349",
+                "amount": 880,
+                "transactionType": "cashBackIn",
+                "description": "Cashback from Referral Code",
+                "date": "2024-09-02T14:45:00Z"
+            },
+            {
+                "transactionID": "T12347",
+                "amount": 500,
+                "transactionType": "cashBackOut",
+                "description": "Cashback Redeemed for Discount code",
                 "date": "2024-09-02T14:45:00Z"
             }
         ]

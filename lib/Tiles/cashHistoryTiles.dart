@@ -32,13 +32,13 @@ class HistoryTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            blurStyle: BlurStyle.solid,
-            color: Colors.black.withOpacity(0.2),
+            blurStyle: BlurStyle.outer,
+            color: Colors.black.withOpacity(0.4),
             blurRadius: 5,
           ),
         ],
       ),
-      height: screenHeight * 0.09, // Slightly increased height
+      height: screenHeight * 0.08, // Slightly increased height
       width: screenWidth * 0.9,
       child: ListTile(
         leading: CircleAvatar(
@@ -69,7 +69,7 @@ class HistoryTile extends StatelessWidget {
         ),
         subtitle: Text(
           cashBackDetails,
-          style: GoogleFonts.plusJakartaSans(),
+          style: GoogleFonts.plusJakartaSans(fontSize: 14),
         ),
       ),
     );
