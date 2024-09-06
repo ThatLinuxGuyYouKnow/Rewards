@@ -1,10 +1,9 @@
-import 'package:balancee_rewards/Tiles/redeemBalanceTabPage.dart';
-import 'package:balancee_rewards/Tiles/rewardBalanceTiles.dart';
-import 'package:balancee_rewards/ReusableWidgets/text.dart';
-import 'package:balancee_rewards/Tabs/historyTab.dart';
-import 'package:balancee_rewards/Tabs/rewardsTab.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:balancee_rewards/Tabs/historyTab.dart';
+import 'package:balancee_rewards/Tabs/rewardsTab.dart';
+import 'package:balancee_rewards/Tiles/rewardBalanceTiles.dart';
+import 'package:balancee_rewards/ReusableWidgets/text.dart';
 
 class MainRewardsScreen extends StatelessWidget {
   @override
@@ -21,86 +20,70 @@ class MainRewardsScreen extends StatelessWidget {
           length: 2, // Number of tabs
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: AppBar(
-              title: Text(
-                'Rewards',
-                style: GoogleFonts.plusJakartaSans(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    letterSpacing: 0.1),
-              ),
-              bottom: TabBar(
-                indicatorColor: Colors.blue,
-                labelColor: Colors.blue,
-                unselectedLabelColor: Colors.grey,
-                tabs: [
-                  Tab(child: StandardText(text: 'Redeem', textSize: 16)),
-                  Tab(child: StandardText(text: 'History', textSize: 16)),
+            body: NestedScrollView(
+              headerSliverBuilder:
+                  (BuildContext context, bool innerBoxIsScrolled) {
+                return <Widget>[
+                  SliverAppBar(
+                    pinned: true, // Keeps the TabBar pinned at the top
+                    floating: false,
+                    expandedHeight:
+                        screenHeight * 0.28, // Adjust height for header
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(height: screenHeight * 0.02),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Total Cashback Earned:',
+                                  style: GoogleFonts.plusJakartaSans(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(width: screenWidth * 0.01),
+                                Text(
+                                  '1000',
+                                  style: GoogleFonts.plusJakartaSans(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: screenHeight * 0.02),
+                            RewardBalanceTab(
+                              cashbackBalance: '20000', // Pass balance here
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    bottom: TabBar(
+                      indicatorColor: Colors.blue,
+                      labelColor: Colors.blue,
+                      unselectedLabelColor: Colors.grey,
+                      tabs: [
+                        Tab(child: StandardText(text: 'Redeem', textSize: 16)),
+                        Tab(child: StandardText(text: 'History', textSize: 16)),
+                      ],
+                    ),
+                  ),
+                ];
+              },
+              body: TabBarView(
+                children: [
+                  RedeemTab(), // Placeholder for Redeem tab content
+                  HistoryTab(), // Placeholder for History tab content
                 ],
               ),
-            ),
-            body: Stack(
-              children: [
-                TabBarView(
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: screenHeight * 0.12,
-                        ),
-                        RedeemTab(),
-                      ],
-                    ), // Placeholder for Redeem tab content
-                    HistoryTab(), // Placeholder for History tab content
-                  ],
-                ),
-                Positioned(
-                  top: 10,
-                  left: 0,
-                  right: 0,
-                  child: Column(
-                    children: [
-                      SizedBox(height: screenHeight * 0.005),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: screenWidth * 0.06,
-                          ),
-                          Text(
-                            'Total CasBack Earned:',
-                            style: GoogleFonts.plusJakartaSans(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            width: screenWidth * 0.001,
-                          ),
-                          Text(
-                            '1000',
-                            style: GoogleFonts.plusJakartaSans(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(height: screenHeight * .02),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          RewardBalanceTab(
-                            cashbackBalance: '20000',
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
             ),
           ),
         ),
