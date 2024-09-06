@@ -25,42 +25,41 @@ class MainRewardsScreen extends StatelessWidget {
                   (BuildContext context, bool innerBoxIsScrolled) {
                 return <Widget>[
                   SliverAppBar(
+                    title: Text(
+                      'Rewards',
+                      style: GoogleFonts.plusJakartaSans(
+                          color: Colors.blue, fontWeight: FontWeight.bold),
+                    ),
                     pinned: true, // Keeps the TabBar pinned at the top
                     floating: false,
-                    expandedHeight:
-                        screenHeight * 0.28, // Adjust height for header
+                    expandedHeight: screenHeight * 0.35, // Increased height
                     flexibleSpace: FlexibleSpaceBar(
                       background: Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: screenHeight * 0.02),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Total Cashback Earned:',
-                                  style: GoogleFonts.plusJakartaSans(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(width: screenWidth * 0.01),
-                                Text(
-                                  '1000',
-                                  style: GoogleFonts.plusJakartaSans(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: screenHeight * 0.02),
+                            SizedBox(
+                                height:
+                                    screenHeight * 0.07), // Increased the space
+
+                            // Adjusted spacing
                             RewardBalanceTab(
-                              cashbackBalance: '20000', // Pass balance here
+                              cashbackBalance: '90000', // Pass balance here
+                            ),
+
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: screenHeight * 0.01),
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: screenWidth * 0.05,
+                                  ),
+                                  Text('Total CashBack Earned',
+                                      style: GoogleFonts.plusJakartaSans()),
+                                ],
+                              ),
                             ),
                           ],
                         ),
