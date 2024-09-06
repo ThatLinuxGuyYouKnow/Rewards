@@ -25,6 +25,7 @@ class MainRewardsScreen extends StatelessWidget {
                   (BuildContext context, bool innerBoxIsScrolled) {
                 return <Widget>[
                   SliverAppBar(
+                    backgroundColor: Colors.white,
                     title: Text(
                       'Rewards',
                       style: GoogleFonts.plusJakartaSans(
