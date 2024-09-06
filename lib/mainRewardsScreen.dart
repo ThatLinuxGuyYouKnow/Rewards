@@ -32,7 +32,7 @@ class MainRewardsScreen extends StatelessWidget {
                     ),
                     pinned: true, // Keeps the TabBar pinned at the top
                     floating: false,
-                    expandedHeight: screenHeight * 0.35, // Increased height
+                    expandedHeight: screenHeight * 0.33, // Increased height
                     flexibleSpace: FlexibleSpaceBar(
                       background: Padding(
                         padding: const EdgeInsets.only(top: 10),
@@ -50,14 +50,22 @@ class MainRewardsScreen extends StatelessWidget {
 
                             Padding(
                               padding: EdgeInsets.symmetric(
-                                  vertical: screenHeight * 0.01),
+                                  vertical: screenHeight * 0.012),
                               child: Row(
                                 children: [
                                   SizedBox(
-                                    width: screenWidth * 0.05,
+                                    width: screenWidth * 0.06,
                                   ),
                                   Text('Total CashBack Earned',
                                       style: GoogleFonts.plusJakartaSans()),
+                                  SizedBox(
+                                    width: screenWidth * 0.02,
+                                  ),
+                                  Text(
+                                    '#987 000',
+                                    style: GoogleFonts.plusJakartaSans(
+                                        fontWeight: FontWeight.bold),
+                                  )
                                 ],
                               ),
                             ),
@@ -79,8 +87,8 @@ class MainRewardsScreen extends StatelessWidget {
               },
               body: TabBarView(
                 children: [
-                  RedeemTab(), // Placeholder for Redeem tab content
-                  HistoryTab(), // Placeholder for History tab content
+                  RedeemTab(),
+                  HistoryTab(),
                 ],
               ),
             ),

@@ -37,7 +37,7 @@ class _HistoryTabState extends State<HistoryTab> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      color: Color.fromARGB(255, 242, 245, 247),
+      color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
           children: [
