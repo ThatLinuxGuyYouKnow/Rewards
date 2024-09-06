@@ -5,7 +5,7 @@ class HistoryFilterButton extends StatelessWidget {
   HistoryFilterButton({super.key, required this.buttonText});
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(101)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
     );
   }
 }
