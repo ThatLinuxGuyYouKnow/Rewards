@@ -1,5 +1,5 @@
-import 'package:balancee_rewards/ReusableWidgets/redeemBalanceTabPage.dart';
-import 'package:balancee_rewards/ReusableWidgets/rewardBalanceTab.dart';
+import 'package:balancee_rewards/Tiles/redeemBalanceTabPage.dart';
+import 'package:balancee_rewards/Tiles/rewardBalanceTiles.dart';
 import 'package:balancee_rewards/ReusableWidgets/text.dart';
 import 'package:balancee_rewards/Tabs/historyTab.dart';
 import 'package:balancee_rewards/Tabs/rewardsTab.dart';

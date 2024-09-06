@@ -1,11 +1,8 @@
+// Import the new cashback_type.dart file
+import 'package:balancee_rewards/Enums/cashBackType.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart'; // For improved date formatting
-
-enum CashBackType {
-  cashBackIn,
-  cashBackOut,
-}
 
 class HistoryTile extends StatelessWidget {
   final CashBackType cashBackType;
@@ -32,13 +29,13 @@ class HistoryTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            blurStyle: BlurStyle.outer,
-            color: Colors.black.withOpacity(0.4),
+            blurStyle: BlurStyle.solid,
+            color: Colors.black.withOpacity(0.2),
             blurRadius: 5,
-          ),
+          )
         ],
       ),
-      height: screenHeight * 0.08, // Slightly increased height
+      height: screenHeight * 0.09,
       width: screenWidth * 0.9,
       child: ListTile(
         leading: CircleAvatar(
@@ -59,7 +56,7 @@ class HistoryTile extends StatelessWidget {
               ),
             ),
             Text(
-              _formatDate(date), // Using a more flexible date format
+              _formatDate(date),
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 12,
                 color: Colors.grey,
@@ -69,7 +66,7 @@ class HistoryTile extends StatelessWidget {
         ),
         subtitle: Text(
           cashBackDetails,
-          style: GoogleFonts.plusJakartaSans(fontSize: 14),
+          style: GoogleFonts.plusJakartaSans(),
         ),
       ),
     );
@@ -102,8 +99,7 @@ class HistoryTile extends StatelessWidget {
     }
   }
 
-  // Improved date formatting using the intl package
   String _formatDate(DateTime date) {
-    return DateFormat('dd/MM/yyyy').format(date);
+    return "${date.day}/${date.month}/${date.year}";
   }
 }
