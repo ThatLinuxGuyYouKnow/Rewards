@@ -1,4 +1,4 @@
-import 'package:balancee_rewards/ReusableWidgets/redeemBalanceTabPage.dart';
+import 'package:balancee_rewards/Tiles/redeemBalanceTabPage.dart';
 import 'package:flutter/material.dart';
 
 class RedeemTab extends StatelessWidget {
