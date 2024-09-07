@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:balancee_rewards/Enums/cashBackType.dart';
 import 'package:balancee_rewards/ReusableWidgets/HistoryFilterButtons.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +13,9 @@ class HistoryTab extends StatefulWidget {
 
 class _HistoryTabState extends State<HistoryTab> {
   List<dynamic> cashbackHistory = [];
-  bool cashbackHistoryOptionsAreVisible = false;
+  List<dynamic> filteredHistory = [];
+  String currentFilter = 'All';
+
   @override
   void initState() {
     super.initState();
@@ -22,77 +23,95 @@ class _HistoryTabState extends State<HistoryTab> {
   }
 
   Future<void> _loadCashbackHistory() async {
-    // Load the mock data from the JSON file
     final String response = await rootBundle
         .loadString('lib/MockData/cashBackHistoryEnquiryResponse.json');
-    final data = json.decode(response); // Parse the JSON
+    final data = json.decode(response);
     setState(() {
-      cashbackHistory =
-          data['data']['cashbackHistory']; // Extract the cashback history
+      cashbackHistory = data['data']['cashbackHistory'];
+      filteredHistory = cashbackHistory;
     });
   }
 
-  toggleCashBackOptionsVisibility() async {
-    cashbackHistoryOptionsAreVisible != cashbackHistoryOptionsAreVisible;
-    setState(() {});
+  void _filterTransactions(String filter) {
+    setState(() {
+      currentFilter = filter;
+      if (filter == 'All') {
+        filteredHistory = cashbackHistory;
+      } else {
+        filteredHistory = cashbackHistory
+            .where((item) =>
+                item['transactionType'] ==
+                (filter == 'In' ? 'cashBackIn' : 'cashBackOut'))
+            .toList();
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       color: Colors.white,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: screenHeight * .01),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * .06),
-                child: Row(children: [
-                  GestureDetector(
-                    onTap: () {
-                      toggleCashBackOptionsVisibility();
-                    },
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: screenWidth * .02),
-                      child: Row(
-                        children: [
-                          Text(
-                            'All',
-                            style: GoogleFonts.plusJakartaSans(fontSize: 12),
-                          ),
-                          SizedBox(width: screenWidth * 0.002),
-                          Icon(Icons.all_inclusive)
-                        ],
-                      ),
-                    ),
-                  )
-                ]),
-              ),
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: screenHeight * .01,
+              horizontal: screenWidth * .06,
             ),
-            // Build HistoryTile widgets dynamically from the parsed cashbackHistory
-            ...cashbackHistory.map((historyItem) {
-              return Column(
-                children: [
-                  HistoryTile(
-                    cashBackDetails:
-                        historyItem['description'], // Description from the data
-                    cashBackAmount:
-                        ' #${historyItem['amount']}', // Format the amount
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Transaction History',
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                DropdownButton<String>(
+                  value: currentFilter,
+                  items: <String>['All', 'In', 'Out']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    if (newValue != null) {
+                      _filterTransactions(newValue);
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: filteredHistory.length,
+              itemBuilder: (context, index) {
+                final historyItem = filteredHistory[index];
+                return Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: screenHeight * 0.01,
+                    horizontal: screenWidth * 0.05,
+                  ),
+                  child: HistoryTile(
+                    cashBackDetails: historyItem['description'],
+                    cashBackAmount: '#${historyItem['amount']}',
                     cashBackType: historyItem['transactionType'] == 'cashBackIn'
                         ? CashBackType.cashBackIn
                         : CashBackType.cashBackOut,
-                    date: DateTime.parse(
-                        historyItem['date']), // Parse the date string
+                    date: DateTime.parse(historyItem['date']),
                   ),
-                  SizedBox(height: screenHeight * 0.02),
-                ],
-              );
-            }).toList(),
-          ],
-        ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
