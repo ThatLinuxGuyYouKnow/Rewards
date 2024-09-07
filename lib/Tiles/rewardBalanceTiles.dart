@@ -12,7 +12,7 @@ class RewardBalanceTab extends StatelessWidget {
       width: screenWidth * 0.9,
       height: screenHeight * 0.15,
       decoration: BoxDecoration(
-          color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+          color: Color(0xFF2F6FA3), borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
         child: Padding(
@@ -54,7 +54,9 @@ class WithdrawCashBackBalance extends StatelessWidget {
       child: Center(
         child: Text('Withdraw',
             style: GoogleFonts.plusJakartaSans(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)),
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF2F6FA3))),
       ),
       height: screenHeight * 0.04,
       width: screenWidth * 0.8,

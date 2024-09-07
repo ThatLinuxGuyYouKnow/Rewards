@@ -13,9 +13,8 @@ class RedeemTab extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: screenWidth * .05),
         child: Column(
           children: [
-            RedeemBalanceTile(),
             SizedBox(
-              height: screenHeight * .002,
+              height: screenHeight * .02,
             ),
             PromoCodeTile()
           ],

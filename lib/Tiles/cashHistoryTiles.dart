@@ -37,10 +37,10 @@ class HistoryTile extends StatelessWidget {
       width: screenWidth * 0.9,
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: Colors.blue.withOpacity(.2),
+          backgroundColor: Color(0xFF2F6FA3).withOpacity(.2),
           child: Icon(
             _getIcon(),
-            color: Colors.blue,
+            color: Color(0xFF2F6FA3),
           ),
         ),
         title: Row(

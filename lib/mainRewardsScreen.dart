@@ -31,7 +31,8 @@ class MainRewardsScreen extends StatelessWidget {
                     title: Text(
                       'Rewards',
                       style: GoogleFonts.plusJakartaSans(
-                          color: Colors.blue, fontWeight: FontWeight.bold),
+                          color: Color(0xFF2F6FA3),
+                          fontWeight: FontWeight.bold),
                     ),
                     pinned: true, // Keeps the TabBar pinned at the top
                     floating: false,
@@ -77,8 +78,8 @@ class MainRewardsScreen extends StatelessWidget {
                       ),
                     ),
                     bottom: TabBar(
-                      indicatorColor: Colors.blue,
-                      labelColor: Colors.blue,
+                      indicatorColor: Color(0xFF2F6FA3),
+                      labelColor: Color(0xFF2F6FA3),
                       unselectedLabelColor: Colors.grey,
                       tabs: [
                         Tab(child: StandardText(text: 'Redeem', textSize: 16)),
