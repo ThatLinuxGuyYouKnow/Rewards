@@ -1,3 +1,4 @@
+import 'package:balancee_rewards/Tiles/discountTile.dart';
 import 'package:balancee_rewards/Tiles/progressBarTile.dart';
 import 'package:balancee_rewards/Tiles/promoCodeTile.dart';
 import 'package:balancee_rewards/Tiles/redeemBalanceTile.dart';
@@ -25,7 +26,8 @@ class RedeemTab extends StatelessWidget {
               subtitle: 'Promo Codes are not transferrable between users',
               title: 'Convert To Promo Code',
             ),
-            SizedBox(height: screenHeight * .06),
+            SizedBox(height: screenHeight * .02),
+            DiscountTile()
           ],
         ),
       ),

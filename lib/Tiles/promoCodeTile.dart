@@ -42,7 +42,7 @@ class PromoCodeTile extends StatelessWidget {
               backgroundColor: Color(0xFF2F6FA3).withOpacity(.2),
               child: Icon(
                 size: 25,
-                Icons.discount,
+                Icons.event,
                 color: iconColor,
               ),
             ),

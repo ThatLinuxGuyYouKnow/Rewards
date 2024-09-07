@@ -2,17 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DiscountTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-
   final Color iconColor;
 
   final VoidCallback? onTap;
 
   const DiscountTile({
     Key? key,
-    required this.title,
-    required this.subtitle,
     this.iconColor = const Color(0xFF2F6FA3),
     this.onTap,
   }) : super(key: key);
@@ -53,7 +48,7 @@ class DiscountTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    'Use as Discount',
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -61,7 +56,7 @@ class DiscountTile extends StatelessWidget {
                   ),
                   SizedBox(height: screenHeight * 0.01),
                   Text(
-                    subtitle,
+                    'CashBack amount will be deducted from future costs',
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 12,
                       color: Colors.grey[600],

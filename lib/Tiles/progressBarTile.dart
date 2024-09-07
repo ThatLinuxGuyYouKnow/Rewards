@@ -7,7 +7,7 @@ class ProgressBarTile extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             blurStyle: BlurStyle.solid,
@@ -16,8 +16,19 @@ class ProgressBarTile extends StatelessWidget {
           )
         ],
       ),
-      height: screenHeight * 0.08,
+      height: screenHeight * 0.06,
       width: screenWidth * 0.9,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * .06),
+          child: LinearProgressIndicator(
+            color: Color(0xFF2F6FA3),
+            borderRadius: BorderRadius.circular(17),
+            value: 0.8,
+          ),
+        ),
+      ),
     );
   }
 }
