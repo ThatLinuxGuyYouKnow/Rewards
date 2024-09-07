@@ -1,3 +1,4 @@
+import 'package:balancee_rewards/Tiles/progressBarTile.dart';
 import 'package:balancee_rewards/Tiles/promoCodeTile.dart';
 import 'package:balancee_rewards/Tiles/redeemBalanceTile.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +17,15 @@ class RedeemTab extends StatelessWidget {
             SizedBox(
               height: screenHeight * .02,
             ),
+            ProgressBarTile(),
+            SizedBox(
+              height: screenHeight * .02,
+            ),
             PromoCodeTile(
               subtitle: 'Promo Codes are not transferrable between users',
               title: 'Convert To Promo Code',
-            )
+            ),
+            SizedBox(height: screenHeight * .06),
           ],
         ),
       ),
