@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PromoCodTile extends StatelessWidget {
+class PromoCodeTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(

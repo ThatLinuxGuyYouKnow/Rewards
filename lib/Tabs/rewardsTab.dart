@@ -1,3 +1,4 @@
+import 'package:balancee_rewards/Tiles/promoCodeTile.dart';
 import 'package:balancee_rewards/Tiles/redeemBalanceTile.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,13 @@ class RedeemTab extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth * .05),
         child: Column(
-          children: [RedeemBalanceTile()],
+          children: [
+            RedeemBalanceTile(),
+            SizedBox(
+              height: screenHeight * .002,
+            ),
+            PromoCodeTile()
+          ],
         ),
       ),
     );
