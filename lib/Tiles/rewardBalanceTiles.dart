@@ -12,7 +12,8 @@ class RewardBalanceTab extends StatelessWidget {
       width: screenWidth * 0.9,
       height: screenHeight * 0.15,
       decoration: BoxDecoration(
-          color: Color(0xFF2F6FA3), borderRadius: BorderRadius.circular(20)),
+          color: const Color(0xFF2F6FA3),
+          borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
         child: Padding(
@@ -56,11 +57,11 @@ class WithdrawCashBackBalance extends StatelessWidget {
             style: GoogleFonts.plusJakartaSans(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF2F6FA3))),
+                color: const Color(0xFF2F6FA3))),
       ),
       height: screenHeight * 0.04,
       width: screenWidth * 0.8,
-      decoration: BoxDecoration(boxShadow: [
+      decoration: BoxDecoration(boxShadow: const [
         BoxShadow(
             color: Colors.white, spreadRadius: 3, blurStyle: BlurStyle.outer)
       ], color: Colors.white, borderRadius: BorderRadius.circular(10)),

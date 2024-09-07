@@ -16,7 +16,10 @@ class RedeemTab extends StatelessWidget {
             SizedBox(
               height: screenHeight * .02,
             ),
-            PromoCodeTile()
+            PromoCodeTile(
+              subtitle: 'Promo Codes are not transferrable between users',
+              title: 'Convert To Promo Code',
+            )
           ],
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PromoCodeTile extends StatelessWidget {
+class DiscountTile extends StatelessWidget {
   final String title;
   final String subtitle;
 
@@ -9,7 +9,7 @@ class PromoCodeTile extends StatelessWidget {
 
   final VoidCallback? onTap;
 
-  const PromoCodeTile({
+  const DiscountTile({
     Key? key,
     required this.title,
     required this.subtitle,
