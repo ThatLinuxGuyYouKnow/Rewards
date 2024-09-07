@@ -14,7 +14,7 @@ class HistoryTab extends StatefulWidget {
 
 class _HistoryTabState extends State<HistoryTab> {
   List<dynamic> cashbackHistory = [];
-
+  bool cashbackHistoryOptionsAreVisible = false;
   @override
   void initState() {
     super.initState();
@@ -32,7 +32,10 @@ class _HistoryTabState extends State<HistoryTab> {
     });
   }
 
-  toggleCashBackOptionsVisibility() async {}
+  toggleCashBackOptionsVisibility() async {
+    cashbackHistoryOptionsAreVisible != cashbackHistoryOptionsAreVisible;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,9 @@ class _HistoryTabState extends State<HistoryTab> {
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * .06),
                 child: Row(children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      toggleCashBackOptionsVisibility();
+                    },
                     child: ConstrainedBox(
                       constraints: BoxConstraints(maxWidth: screenWidth * .02),
                       child: Row(
