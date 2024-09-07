@@ -37,10 +37,10 @@ class HistoryTile extends StatelessWidget {
       width: screenWidth * 0.9,
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: _getBackgroundColor(),
+          backgroundColor: Colors.blue.withOpacity(.2),
           child: Icon(
             _getIcon(),
-            color: _getIconColor(),
+            color: Colors.blue,
           ),
         ),
         title: Row(
@@ -76,24 +76,6 @@ class HistoryTile extends StatelessWidget {
         return Icons.add;
       case CashBackType.cashBackOut:
         return Icons.remove;
-    }
-  }
-
-  Color _getIconColor() {
-    switch (cashBackType) {
-      case CashBackType.cashBackIn:
-        return Colors.green;
-      case CashBackType.cashBackOut:
-        return Colors.amber;
-    }
-  }
-
-  Color _getBackgroundColor() {
-    switch (cashBackType) {
-      case CashBackType.cashBackIn:
-        return Colors.green.withOpacity(0.3);
-      case CashBackType.cashBackOut:
-        return Colors.amber.withOpacity(0.2);
     }
   }
 

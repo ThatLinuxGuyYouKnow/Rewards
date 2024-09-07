@@ -64,6 +64,15 @@ class _HistoryTabState extends State<HistoryTab> {
             cashBackDetails: 'cashBackDetails',
             date: DateTime.now(),
           ),
+          SizedBox(
+            height: screenHeight * .02,
+          ),
+          HistoryTile(
+            cashBackType: CashBackType.cashBackOut,
+            cashBackAmount: '2000000',
+            cashBackDetails: 'cashBackDetails',
+            date: DateTime.now(),
+          ),
         ],
       ),
     );
