@@ -1,4 +1,4 @@
-import 'package:balancee_rewards/Tiles/redeemBalanceTabPage.dart';
+import 'package:balancee_rewards/Tiles/redeemBalanceTile.dart';
 import 'package:flutter/material.dart';
 
 class RedeemTab extends StatelessWidget {
@@ -11,7 +11,7 @@ class RedeemTab extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth * .05),
         child: Column(
-          children: [RedeemBalanceTab()],
+          children: [RedeemBalanceTile()],
         ),
       ),
     );

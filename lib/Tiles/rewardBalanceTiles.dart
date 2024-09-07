@@ -58,8 +58,10 @@ class WithdrawCashBackBalance extends StatelessWidget {
       ),
       height: screenHeight * 0.04,
       width: screenWidth * 0.8,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+            color: Colors.white, spreadRadius: 3, blurStyle: BlurStyle.outer)
+      ], color: Colors.white, borderRadius: BorderRadius.circular(10)),
     ));
   }
 }
