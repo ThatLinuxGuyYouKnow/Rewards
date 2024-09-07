@@ -9,12 +9,12 @@ class HistoryTile extends StatelessWidget {
   final DateTime date;
 
   const HistoryTile({
-    Key? key,
+    super.key,
     required this.cashBackType,
     required this.cashBackAmount,
     required this.cashBackDetails,
     required this.date,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class HistoryTile extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(22),
         boxShadow: [
           BoxShadow(
             blurStyle: BlurStyle.solid,
@@ -33,17 +33,14 @@ class HistoryTile extends StatelessWidget {
           )
         ],
       ),
-      height: screenHeight * 0.09,
+      height: screenHeight * 0.08,
       width: screenWidth * 0.9,
       child: ListTile(
-        leading: Align(
-          alignment: Alignment.center, // Aligns the CircleAvatar vertically
-          child: CircleAvatar(
-            backgroundColor: _getBackgroundColor(),
-            child: Icon(
-              _getIcon(),
-              color: _getIconColor(),
-            ),
+        leading: CircleAvatar(
+          backgroundColor: _getBackgroundColor(),
+          child: Icon(
+            _getIcon(),
+            color: _getIconColor(),
           ),
         ),
         title: Row(

@@ -41,7 +41,7 @@ class _HistoryTabState extends State<HistoryTab> {
         filteredHistory = cashbackHistory
             .where((item) =>
                 item['transactionType'] ==
-                (filter == 'In' ? 'cashBackIn' : 'cashBackOut'))
+                (filter == 'cashBackIn' ? 'cashBackIn' : 'cashBackOut'))
             .toList();
       }
     });
@@ -52,64 +52,17 @@ class _HistoryTabState extends State<HistoryTab> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Container(
-      color: Colors.white,
+    return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: screenHeight * .01,
-              horizontal: screenWidth * .06,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Transaction History',
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                DropdownButton<String>(
-                  value: currentFilter,
-                  items: <String>['All', 'In', 'Out']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    if (newValue != null) {
-                      _filterTransactions(newValue);
-                    }
-                  },
-                ),
-              ],
-            ),
+          SizedBox(
+            height: screenHeight * .02,
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: filteredHistory.length,
-              itemBuilder: (context, index) {
-                final historyItem = filteredHistory[index];
-                return Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: screenHeight * 0.01,
-                    horizontal: screenWidth * 0.05,
-                  ),
-                  child: HistoryTile(
-                    cashBackDetails: historyItem['description'],
-                    cashBackAmount: '#${historyItem['amount']}',
-                    cashBackType: historyItem['transactionType'] == 'cashBackIn'
-                        ? CashBackType.cashBackIn
-                        : CashBackType.cashBackOut,
-                    date: DateTime.parse(historyItem['date']),
-                  ),
-                );
-              },
-            ),
+          HistoryTile(
+            cashBackType: CashBackType.cashBackIn,
+            cashBackAmount: '2000000',
+            cashBackDetails: 'cashBackDetails',
+            date: DateTime.now(),
           ),
         ],
       ),

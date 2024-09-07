@@ -6,6 +6,8 @@ import 'package:balancee_rewards/Tiles/rewardBalanceTiles.dart';
 import 'package:balancee_rewards/ReusableWidgets/text.dart';
 
 class MainRewardsScreen extends StatelessWidget {
+  const MainRewardsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
