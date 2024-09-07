@@ -65,7 +65,7 @@ class _HistoryTabState extends State<HistoryTab> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Transaction History',
+                  'CashBack History',
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

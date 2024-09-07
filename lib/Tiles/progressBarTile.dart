@@ -5,10 +5,19 @@ class ProgressBarTile extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      height: screenHeight * .05,
-      width: screenWidth * .9,
       decoration: BoxDecoration(
-          color: Colors.white, boxShadow: [BoxShadow(color: Colors.black)]),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(22),
+        boxShadow: [
+          BoxShadow(
+            blurStyle: BlurStyle.solid,
+            color: Colors.black.withOpacity(0.2),
+            blurRadius: 5,
+          )
+        ],
+      ),
+      height: screenHeight * 0.08,
+      width: screenWidth * 0.9,
     );
   }
 }
