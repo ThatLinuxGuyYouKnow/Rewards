@@ -101,7 +101,7 @@ class _HistoryTabState extends State<HistoryTab> {
                   ),
                   child: HistoryTile(
                     cashBackDetails: historyItem['description'],
-                    cashBackAmount: '#${historyItem['amount']}',
+                    cashBackAmount: '₦${historyItem['amount']}',
                     cashBackType: historyItem['transactionType'] == 'cashBackIn'
                         ? CashBackType.cashBackIn
                         : CashBackType.cashBackOut,

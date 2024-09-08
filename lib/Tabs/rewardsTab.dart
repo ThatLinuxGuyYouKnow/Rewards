@@ -47,7 +47,8 @@ class _RedeemTabState extends State<RedeemTab> {
 
     // Access mock data fields for the widgets
     int currentCashback = mockData['cashbackBalance']; // Cashback balance
-    int goalCashback = 20000000; // Total cashback goal
+    int cashBackTotal = mockData['totalCashback'];
+    int goalCashback = mockData['cashback_goal']; // Total cashback goal
 
     return SingleChildScrollView(
       child: Padding(
@@ -57,7 +58,7 @@ class _RedeemTabState extends State<RedeemTab> {
             SizedBox(height: screenHeight * .02),
             // Progress bar showing cashback progress
             ProgressBarTile(
-              currentCashback: currentCashback.toDouble(),
+              cashBackTotal: cashBackTotal.toDouble(),
               goalCashback: goalCashback.toDouble(),
             ),
             SizedBox(height: screenHeight * .02),

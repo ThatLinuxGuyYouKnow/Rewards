@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProgressBarTile extends StatelessWidget {
-  final double currentCashback;
+  final double cashBackTotal;
   final double goalCashback;
 
   const ProgressBarTile({
     Key? key,
-    required this.currentCashback,
+    required this.cashBackTotal,
     required this.goalCashback,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double progress = (currentCashback / goalCashback).clamp(0.0, 1.0);
+    double progress = (cashBackTotal / goalCashback).clamp(0.0, 1.0);
 
     return Container(
       padding: EdgeInsets.all(16),
@@ -44,7 +44,7 @@ class ProgressBarTile extends StatelessWidget {
                 ),
               ),
               Text(
-                '${currentCashback.toStringAsFixed(0)} / ${goalCashback.toStringAsFixed(0)}',
+                '${cashBackTotal.toStringAsFixed(0)} / ${goalCashback.toStringAsFixed(0)}',
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,

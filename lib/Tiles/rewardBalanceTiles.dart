@@ -27,7 +27,7 @@ class RewardBalanceTab extends StatelessWidget {
                     text: 'Current CashBack Balance :  ',
                     textSize: 18,
                   ),
-                  HighlightText(text: '#'),
+                  HighlightText(text: '₦'),
                   HighlightText(
                     text: cashbackBalance,
                     textSize: 19,

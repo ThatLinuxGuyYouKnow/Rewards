@@ -5,8 +5,9 @@
             "firstName": "Ayobami",
             "lastName": "Alabi"
         },
-        "totalCashback": 200000000,
-        "cashbackBalance": 20000,
+        "totalCashback": 567845,
+        "cashbackBalance": 24536,
+        "cashback_goal": 2000000,
         "cashbackHistory": [
             {
                 "transactionID": "T12345",

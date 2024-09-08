@@ -71,7 +71,7 @@ class _MainRewardsScreenState extends State<MainRewardsScreen> {
                     ),
                     pinned: true, // Keeps the TabBar pinned at the top
                     floating: false,
-                    expandedHeight: screenHeight * 0.33, // Increased height
+                    expandedHeight: screenHeight * 0.3, // Increased height
                     flexibleSpace: FlexibleSpaceBar(
                       background: Padding(
                         padding: const EdgeInsets.only(top: 10),
