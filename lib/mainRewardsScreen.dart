@@ -1,17 +1,51 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:balancee_rewards/Tabs/historyTab.dart';
 import 'package:balancee_rewards/Tabs/rewardsTab.dart';
 import 'package:balancee_rewards/Tiles/rewardBalanceTiles.dart';
 import 'package:balancee_rewards/ReusableWidgets/text.dart';
 
-class MainRewardsScreen extends StatelessWidget {
+class MainRewardsScreen extends StatefulWidget {
   const MainRewardsScreen({super.key});
+
+  @override
+  _MainRewardsScreenState createState() => _MainRewardsScreenState();
+}
+
+class _MainRewardsScreenState extends State<MainRewardsScreen> {
+  late Map<String, dynamic> mockData;
+  bool isLoading = true; // For loading state
+
+  @override
+  void initState() {
+    super.initState();
+    _loadMockData();
+  }
+
+  Future<void> _loadMockData() async {
+    // Load the mock data from the JSON file in assets
+    final String response = await rootBundle
+        .loadString('lib/MockData/cashBackHistoryEnquiryResponse.json');
+    final data = json.decode(response); // Parse the JSON
+    setState(() {
+      mockData = data['data']; // Extract the relevant part of the mock data
+      isLoading = false; // Loading is finished
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
+    if (isLoading) {
+      return Center(child: CircularProgressIndicator()); // Show loading spinner
+    }
+
+    // Access the cashback balance from the mock data
+    String cashbackBalance = mockData['cashbackBalance'].toString();
 
     return Container(
       height: screenHeight,
@@ -31,8 +65,9 @@ class MainRewardsScreen extends StatelessWidget {
                     title: Text(
                       'Rewards',
                       style: GoogleFonts.plusJakartaSans(
-                          color: Color(0xFF2F6FA3),
-                          fontWeight: FontWeight.bold),
+                        color: Color(0xFF2F6FA3),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     pinned: true, // Keeps the TabBar pinned at the top
                     floating: false,
@@ -44,12 +79,13 @@ class MainRewardsScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SizedBox(
-                                height:
-                                    screenHeight * 0.07), // Increased the space
+                              height: screenHeight * 0.07,
+                            ),
 
-                            // Adjusted spacing
+                            // Pass the dynamically loaded cashback balance to the RewardBalanceTab widget
                             RewardBalanceTab(
-                              cashbackBalance: '90000', // Pass balance here
+                              cashbackBalance:
+                                  cashbackBalance, // Loaded dynamically from mock data
                             ),
 
                             Padding(
@@ -60,16 +96,6 @@ class MainRewardsScreen extends StatelessWidget {
                                   SizedBox(
                                     width: screenWidth * 0.06,
                                   ),
-                                  Text('Total CashBack Earned',
-                                      style: GoogleFonts.plusJakartaSans()),
-                                  SizedBox(
-                                    width: screenWidth * 0.02,
-                                  ),
-                                  Text(
-                                    '#987 000',
-                                    style: GoogleFonts.plusJakartaSans(
-                                        fontWeight: FontWeight.bold),
-                                  )
                                 ],
                               ),
                             ),
@@ -91,8 +117,8 @@ class MainRewardsScreen extends StatelessWidget {
               },
               body: TabBarView(
                 children: [
-                  RedeemTab(),
-                  HistoryTab(),
+                  RedeemTab(), // Placeholder for Redeem tab content
+                  HistoryTab(), // Placeholder for History tab content
                 ],
               ),
             ),

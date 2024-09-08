@@ -24,7 +24,7 @@
             },
             {
                 "transactionID": "T12347",
-                "amount": -5000,
+                "amount": 5000,
                 "transactionType": "cashBackOut",
                 "description": "Cashback Withdrawn to Bank",
                 "date": "2024-09-02T14:45:00Z"
