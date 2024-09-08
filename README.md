@@ -1,16 +1,13 @@
-# balancee_rewards
+# A Single 'Rewards' Screen for the Balanceé app
 
-A new Flutter project.
+## CheckList(Components)
 
-## Getting Started
+> Track their earnings from bookings made through the Balanceè platform. ✔
+> View a history of their cashback transactions. ✔
+> Cash out rewards either directly or by applying promo codes. ✔
+> Use dummy data where applicable, mock JSON response and focus on writing maintainable code. ✔
+> Make sure the UI looks good and you can use animations ✔
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
