@@ -61,13 +61,13 @@ class _RedeemTabState extends State<RedeemTab> {
               goalCashback: goalCashback.toDouble(),
             ),
             SizedBox(height: screenHeight * .02),
-            // Promo code tile with some static text
+
             PromoCodeTile(
               subtitle: 'Promo Codes are not transferrable between users',
               title: 'Convert To Promo Code',
             ),
             SizedBox(height: screenHeight * .02),
-            // Discount tile (you can also pass dynamic data if needed)
+
             DiscountTile(),
           ],
         ),
