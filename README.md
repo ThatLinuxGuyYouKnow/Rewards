@@ -12,20 +12,20 @@
 
 ### Earnings Overview:
 
-> Total Cashback Earned ✔
-> Current Balance ✔
+- Total Cashback Earned ✔
+- Current Balance ✔
 
 ### Cashback History:
 
-> Transaction Date ✔
-> Amount Earned  ✔
-> Booking Details ✔
+- Transaction Date ✔
+- Amount Earned  ✔
+- Booking Details ✔
 
 
 ### CashOut Options
 
-> Direct Cashout ✔
-> Promo Codes ✔
+- Direct Cashout ✔
+- Promo Codes ✔
 
 # -------------------------------------------------------------------------------------------
 
@@ -37,8 +37,8 @@ Following the apparent design choices from the balancee website and the screensh
 
 ### Colour 
 
-Main Colour/Background : White
-Sub Colour/ Highlight: Blue
+- Main Colour/Background : White
+- Sub Colour/ Highlight: Blue
 
 ### Font
 
@@ -55,15 +55,15 @@ Widgets all have a border radius providing a curved rounded edges as it appears 
 
 ### File structure
 
-> Although not the MVC code/file structure, widgets are grouped into folders with descriptive and apparemt names
-> Widgets are placed into folders with other relevant/similar widgets
+- Although not the MVC code/file structure, widgets are grouped into folders with descriptive and apparemt names
+- Widgets are placed into folders with other relevant/similar widgets
 
 ### Widgets
 
-> Widgets are extrapolated to avoid hard-coding and hard to read/edit code.
+- Widgets are extrapolated to avoid hard-coding and hard to read/edit code.
 
 ### Mock Data and Usage
 
-> This screen uses mock data that would be similar to data returned from a server on query.
-> The data is handled and extracted to keep the displayed data relevant
+- This screen uses mock data that would be similar to data returned from a server on query.
+- The data is handled and extracted to keep the displayed data relevant
 
