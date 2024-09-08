@@ -40,6 +40,7 @@ Following the apparent design choices from the balancee website and the screensh
 - Main Colour/Background : White
 - Sub Colour/ Highlight: Blue
 
+* The specific blue used is the Hex convert of the RGB(47 111 163) used on the website 
 ### Font
 
 The font used is 'Plus Jakarta Sans', imported via the Google Fonts package, as it is the font used in the website
