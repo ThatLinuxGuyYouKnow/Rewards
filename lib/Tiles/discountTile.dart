@@ -20,7 +20,7 @@ class DiscountTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: screenHeight * 0.11,
+        height: screenHeight * 0.1,
         width: screenWidth * 0.9,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

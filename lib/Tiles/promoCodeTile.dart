@@ -25,7 +25,7 @@ class PromoCodeTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: screenHeight * 0.11,
+        height: screenHeight * 0.1,
         width: screenWidth * 0.9,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -42,7 +42,7 @@ class PromoCodeTile extends StatelessWidget {
               backgroundColor: Color(0xFF2F6FA3).withOpacity(.2),
               child: Icon(
                 size: 25,
-                Icons.receipt,
+                Icons.local_activity,
                 color: iconColor,
               ),
             ),
@@ -59,7 +59,7 @@ class PromoCodeTile extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.01),
+                  SizedBox(height: screenHeight * 0.008),
                   Text(
                     subtitle,
                     style: GoogleFonts.plusJakartaSans(

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:balancee_rewards/Tiles/earnMoreTile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:balancee_rewards/Tiles/discountTile.dart';
@@ -65,11 +66,13 @@ class _RedeemTabState extends State<RedeemTab> {
 
             PromoCodeTile(
               subtitle: 'Promo Codes are not transferrable between users',
-              title: 'Convert To Promo Code',
+              title: 'Convert to Promo Code',
             ),
             SizedBox(height: screenHeight * .02),
 
             DiscountTile(),
+            SizedBox(height: screenHeight * .02),
+            EarnMoreTile()
           ],
         ),
       ),
