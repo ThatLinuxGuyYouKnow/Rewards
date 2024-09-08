@@ -12,13 +12,31 @@
 
 ### Earnings Overview:
 
-> Total Cashback Earned
-> Current Balance
+> Total Cashback Earned ✔
+> Current Balance ✔
 
 ### Cashback History:
 
-> Transaction Date
-> Amount Earned
-> Booking Details
+> Transaction Date ✔
+> Amount Earned  ✔
+> Booking Details ✔
 
 
+### CashOut Options
+
+> Direct Cashout ✔
+> Promo Codes ✔
+
+## UI Choices
+
+Following the apparent design choices from the balancee website and the screenshot displayed
+
+
+### Colour 
+
+Main Colour/Background : White
+Sub Colour/ Highlight: Blue
+
+### Font
+
+The font used is 'Plus Jakarta Sans', imported via the Google Fonts package
