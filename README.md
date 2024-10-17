@@ -2,7 +2,7 @@
 
 ## CheckList(Tasks)
 
-- Track their earnings from bookings made through the Balanceè platform. ✔
+- Track their earnings from bookings made through the Balanceè platform. 
 - View a history of their cashback transactions. ✔
 - Cash out rewards either directly or by applying promo codes. ✔
 - Use dummy data where applicable, mock JSON response and focus on writing maintainable code. ✔
